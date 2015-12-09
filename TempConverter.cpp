@@ -5,6 +5,8 @@
 #define LOWERLIMIT 0
 #define UPPERLIMIT 50000
 
+float convertCelctoF(float celcius);
+
 int main(int argc, char *argv[])
 {
     int lowerLimit = -1, upperLimit = -1, step = 0;
@@ -26,7 +28,27 @@ int main(int argc, char *argv[])
            scanf("%d", &step);       
     }
     
+    printf("Celsius\tFahrenheit\n");
+    printf("-------\t----------\n");
     
+    float celcius = lowerLimit;
+    float fahrenheit = 0.0;
+    
+    while( celcius <= upperLimit ){
+           
+        fahrenheit = convertCelctoF(celcius);
+        printf("%f\t%f\n", celcius, fahrenheit);   
+        celcius =  celcius + step;   
+    }
     
     system("PAUSE");
+}
+
+float convertCelctoF(float celcius){
+      
+      float fahrenheit;
+      
+      fahrenheit = (celcius*1.8) + 32;
+      
+      return fahrenheit;
 }
